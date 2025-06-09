@@ -586,7 +586,7 @@ def generate_ncr_report_for_veridia(df: pd.DataFrame, report_type: str, start_da
                     st.write("Falling back to local count for this chunk")
                     process_chunk_locally(chunk, all_results, report_type)
 
-            st.write(f"Debug - Final {report_type} result: {json.dumps(all_results, indent=2)}")
+            # st.write(f"Debug - Final {report_type} result: {json.dumps(all_results, indent=2)}")
             return all_results, json.dumps(all_results)
 
     except TypeError as e:

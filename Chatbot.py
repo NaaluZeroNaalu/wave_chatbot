@@ -45,6 +45,7 @@ def GetAccesstoken():
         token_info = response.json()
         return token_info['access_token']
     
+
     
 def generatePrompt(question):
     # st.write(st.session_state.all_reports_veridia)
@@ -54,10 +55,11 @@ def generatePrompt(question):
         chat History:
         {st.session_state.chathistory}
 
-user:{question}
+Wave Team:{question}
 
-You are a helpful and conversational Site engineer AI assistant. Respond to the user's input in a natural, human-like manner.
+You are a helpful and conversational Site engineer AI assistant. Respond to the Wave Team input in a natural, human-like manner, call the user always wave team.
 
+your name : Wave Chatbot 1.0
 
 You have access to the following summaries:
 veridia:
@@ -165,6 +167,9 @@ if "ewsligsummaries" not in st.session_state:
 if "chathistory" not in st.session_state:
     st.session_state.chathistory = None
 
+if "projectname" not in st.session_state:
+    st.session_state.projectname = None
+
 for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
@@ -202,15 +207,23 @@ if user_input:
         elif message_type == "project":
             
             # display_text = f"**Project executed:** {reply_content}"
-            st.write(reply_content)
+            # st.write(reply_content)
+            st.session_state.projectname = reply_content
             display_text = ProcessFiles(reply_content)
-            st.info("Now Choose a Date")
+            # st.write(display_text)
+            if display_text == "Asite Login Failed":
+                with st.chat_message("assistant"):
+                    st.markdown(f"Asite Login Failed can i continue again for {reply_content}")
+                st.session_state.messages.append({"role": "assistant", "content": f"Asite Login Failed can i continue again for {reply_content}"})
+            else:
+                st.session_state.messages.append({"role": "assistant", "content": "now Choose a Date"})
+
             st.session_state.show_date_picker = True
 
             # Choosedate()
-            st.session_state.messages.append({"role": "assistant", "content": "now Choose a Date"})
-            with st.chat_message("assistant"):
-                st.markdown("now Choose a Date")
+           
+            # with st.chat_message("assistant"):
+            #     st.markdown("")
 
         else:
             # Fallback for unknown types

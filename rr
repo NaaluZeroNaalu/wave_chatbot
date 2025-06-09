@@ -1,0 +1,14 @@
+# Watsonx config
+WATSONX_API_KEY = "kEYC-iaRZRuEb0AIck5x1iCDB32Zdb8MkC_3j6AzpIz3"
+WATSONX_PROJECT_ID = "4152f31e-6a49-40aa-9b62-0ecf629aae42"
+WATSONX_URL= "https://us-south.ml.cloud.ibm.com"
+WATSONX_MODEL_ID="llama-3-2-11b-vision-instruct"
+#===================================
+
+SALESFORCE_CLIENT_ID='3MVG9wt4IL4O5wvKmuWykzw13DGFOnjtd2q0MhKTvjQRdylQtrxmuTnEq4i2_.s6sQSQ5YJMl.1n_ScCpSDSP'
+SALESFORCE_CLIENT_SECRET='B7143F5B5BEA70B22F037608F6FDCD818AFEFDC88CD1588FB0608720471E9369'
+SALESFORCE_USERNAME='impwatson@gadieltechnologies.com'
+SALESFORCE_PASSWORD='Wave@#123456'
+SALESFORCE_INSTANCE_URL="https://waveinfratech.my.salesforce.com"
+SALESFORCE_LEADS_URL="https://waveinfratech.my.salesforce.com/services/data/v58.0/query/?q="
+SALESFORCE_USERS_URL="https://waveinfratech.my.salesforce.com/services/data/v61.0/query/?q="
